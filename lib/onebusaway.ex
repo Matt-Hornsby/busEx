@@ -4,4 +4,8 @@ defmodule Onebusaway do
     parsed = Poison.Parser.parse!(response.body)
     parsed["data"]["references"]["stops"]
   end
+
+  def stop(id) do
+   stops |> Enum.filter(&(&1["code"] == id))
+  end
 end
